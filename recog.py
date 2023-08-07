@@ -5,7 +5,7 @@ import math
 #Finds contours, isolates "adult" contours which out the outermost ones
 #i.e. the card edges, finds and orients the corners and returns
 #rank from corner of card
-def findCards(processedImage, image):
+def find_cards(processedImage, image):
     adultContours = []
     cardCorners = []
 
@@ -28,7 +28,7 @@ def findCards(processedImage, image):
             #but it might help performance
             if len(c) != 4:
                 continue
-            c = orientCards(c)
+            c = orient_cards(c)
 
             #Visual markers and numbers
             for idx, corners in enumerate(c):
@@ -45,7 +45,7 @@ def findCards(processedImage, image):
         # print("An exception occurred:", error)
         pass
 
-def orientCards(corners):
+def orient_cards(corners):
     dist0to1 = math.dist(corners[0][0], corners[1][0])
     dist1to2 = math.dist(corners[1][0], corners[2][0])
     if (dist0to1 < dist1to2):

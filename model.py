@@ -8,7 +8,7 @@ import cv2
 model = tf.keras.models.load_model('models/my_model.keras')
 # model.summary()
 
-def getPrediction(img):
+def get_prediction(img):
     resized = 255-resize_to_28x28(img)
     try:
         res = model.predict(resized)
